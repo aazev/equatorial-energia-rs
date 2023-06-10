@@ -1,0 +1,25 @@
+[package]
+name = "equatorial-energia"
+authors = ["André Azevedo <andre.azev@gmail.com>"]
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+reqwest = { version = "0.11.18", features = ["multipart"] }
+serde = { version = "1.0.164", features = ["derive"] }
+serde_json = "1.0.96"
+uuid = { version = "1.3.3", features = ["atomic"] }
+
+
+[profile.dev.package."*"]
+opt-level = "z"
+
+[profile.release]
+strip = true
+lto = "fat"
+codegen-units = 1
+opt-level = 3
+panic = "abort"
+# rustflags = ["-C", "target-cpu=native"]
