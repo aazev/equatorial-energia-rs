@@ -7,10 +7,10 @@ pub struct LoginResponse {
     pub token_type: String,
 }
 
-
 #[derive(Debug, Deserialize)]
 pub struct LoginError {
     pub error: String,
+    pub error_description: String,
 }
 
 #[derive(Debug, Deserialize)]
